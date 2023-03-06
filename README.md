@@ -1,4 +1,4 @@
-# just-pet-pics
-A MERN SPA for a Just Pet Pics
+# pet-matcher
+A MERN SPA to match pets
 
-Check it out at http://justpetpics.com
+Check it out at ... (coming soon)
