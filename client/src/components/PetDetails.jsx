@@ -75,7 +75,7 @@ const PetDetails = () => {
     return (
         <div className='col-lg-6 col-md-8 m-auto'>
             <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Just Pet Pics</h1>
+                <h1 >Mascota Matcher</h1>
                 <div>
                 <Login/><button className='btn'><NavLink to={"/"} >back to home</NavLink></button>
                 </div>

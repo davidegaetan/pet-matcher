@@ -16,10 +16,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<><AllPets /></>} />
-          <Route exact path="/home" element={<><AllPets /></>} />
+          <Route exact path="/" element={<><UserLogin/></>} />
+          <Route exact path="/asdf" element={<><AllPets /></>} />
           <Route exact path="/pets/new" element={<NewPet />} />
-          <Route exact path="/user/pets" element={<YourPets />} />
+          <Route exact path="/home" element={<YourPets />} />
           <Route exact path="/pets/:petId" element={<PetDetails />} />
           <Route exact path="/pets/:petId/edit" element={<EditPet />} />
           <Route exact path="/user/new" element={<NewUser />} />

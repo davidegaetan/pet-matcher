@@ -31,7 +31,7 @@ const NewPet = () => {
         }, {withCredentials:true})
             .then(res => {
                 console.log(res)
-                navigate("/");
+                navigate("/home");
             })
             .catch(err => {
                 console.log(err.response.status, "err.response.status")
@@ -47,8 +47,8 @@ const NewPet = () => {
     return (
         <div className='col-lg-6 col-md-8 m-auto'>
             <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Just Pet Pics</h1>
-                <NavLink to={"/"} >back to home</NavLink>
+                <h1 >Mascota Matcher</h1>
+                <NavLink to={"/home"} >back to home</NavLink>
             </div>
             <div className=' mb-3 ms-2 ms-md-0'>
                 <h4 className='mt-2'>Know a pet needing a home?</h4>
