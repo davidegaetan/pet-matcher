@@ -19,7 +19,7 @@ const UserLogout = (props) => {
     return (
         <>
         {
-            allbtns ? <> <button className='btn'><NavLink to={'/pets/new'}>add a pet</NavLink></button><button className='btn'><NavLink to={'/user/pets'}>your pets</NavLink></button><button className='btn text-danger' type="submit" onClick={logOut}>log out</button> <AdminButton/> </> : <> <button className='btn text-danger' type="submit" onSubmit={logOut}>log out</button> </>
+            allbtns ? <> <button className='btn'><NavLink to={'/pets/new'}>add a pet</NavLink></button><button className='btn'><NavLink to={'/home'}>your pets</NavLink></button><button className='btn text-danger' type="submit" onClick={logOut}>log out</button> <AdminButton/> </> : <> <button className='btn text-danger' type="submit" onSubmit={logOut}>log out</button> </>
         }
         </>
     )
