@@ -14,5 +14,9 @@ code {
 
 a{
   text-decoration: none;
-  color: #000000;
+  color: #000000
+}
+.map-container {
+  height: 40vh;
+  width: auto;
 }
