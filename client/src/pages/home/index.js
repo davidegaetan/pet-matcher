@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Typography, Container } from '@mui/material';
-import PetList from './Pets/pet-list';
+import PetList from '../../components/Pets/pet-list'
 
-
-const YourPets = () => {
+function Home() {
     const [pets, setPets] = useState([]);
-
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/user/pets/',
@@ -30,4 +28,4 @@ const YourPets = () => {
     )
 }
 
-export default YourPets
+export default Home;
