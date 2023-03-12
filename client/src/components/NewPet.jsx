@@ -83,9 +83,15 @@ const NewPet = () => {
                         <label htmlFor="name" >Pet Name</label>
                         <input type="text" name="name" id="name" onChange={e => setName(e.target.value)} className='form-control' required minLength="3" />
                         {/* {allErrors.name ? <div className='invalid-feedback'> {allErrors.name.message}</div> : <div></div>} */}
+                        <div className="mb-3">
                         <label htmlFor="petType" >Pet Type</label>
-                        <input type="text" name="petType" id="petType" onChange={e => setPetType(e.target.value)} className='form-control' required minLength="3" />
-                        {/* {allErrors.petType ? <div className='invalid-feedback'> {allErrors.petType.message}</div> : <div></div>} */}
+                            <select className='form-select'name="petType" id='petType' onChange={e=>setPetType(e.target.value)}>
+                                <option>Select your Pet Type</option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                            </select>
+                            {/* {allErrors.petType ? <div className='invalid-feedback'> {allErrors.petType.message}</div> : <div></div>} */}
+                        </div>
                         <label htmlFor="description" >Description</label>
                         <input type="text" name="description" id="description" onChange={e => setDescription(e.target.value)} className='form-control' required minLength="3" />
                         {/* {allErrors.description ? <div className='invalid-feedback'> {allErrors.description.message}</div> : <div></div>} */}

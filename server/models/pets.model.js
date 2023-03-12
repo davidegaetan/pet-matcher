@@ -9,12 +9,23 @@ const petSchema = new mongoose.Schema({
     petType: {
         type: String,
         required: [true,"Your pet's type is required"],
-        minlength: [3, "Your pet's type must be at least 3 characters long"]
+        enum: {
+            values : ['Perro','Gato'],
+            message : "Choose only these types of pets"
+        }
     },
     description: {
         type: String,
         required: [true,"Your pet's description is required"],
         minlength: [3, "Your pet's description must be at least 3 characters long"]
+    },
+    possibleMatches:{
+        type : Array,
+        default : []
+    },
+    matches:{
+        type : Array,
+        default : []
     },
     location : {
         lat :{

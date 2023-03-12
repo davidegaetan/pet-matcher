@@ -14,6 +14,7 @@ import ProtectedAdminRoute from './utils/ProtectedAdminRoute';
 import Layout from './pages/layout';
 import NoPage from './pages/no-page';
 import Home from './pages/home';
+import Match from './components/Match';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/pets/new" element={<NewPet />} />
             <Route exact path="/pets/:petId" element={<PetDetails />} />
             <Route exact path="/pets/:petId/edit" element={<EditPet />} />
+            <Route exact path="/pets/:petId/match" element={<Match/>} />
             <Route path="/pets/*" element={<NoPage />} />
           </Route>
           <Route path="/" element={<ProtectedAdminRoute><Layout /></ProtectedAdminRoute>}>

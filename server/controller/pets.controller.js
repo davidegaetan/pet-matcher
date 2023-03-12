@@ -14,7 +14,12 @@ module.exports.findOnePet = (req, res) => {
         .then(onePet => res.json({ Pets: onePet }))
         .catch(err => res.status(400).json({ message: "Something went wrong", error: err }));
 }
-
+module.exports.findAllPetsBut = (req, res) => {
+    const tipo = req.params.petType
+    Pet.find({approved:true, petType: tipo})
+        .then(allPets => res.json({ Pets: allPets }))
+        .catch(err => res.status(400).json({ message: "Something went wrong", error: err }));
+}
 module.exports.insertNewPet = (req, res) => {
     const { adminToken } = req.cookies;
     const { userToken } = req.cookies;
@@ -36,8 +41,10 @@ module.exports.insertNewPet = (req, res) => {
 }
 
 module.exports.editPet = (req, res) => {
+    //console.log(req.body)
     Pet.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true })
         .then(updatedPet => {
+            //console.log(updatedPet)
             res.json({ Pets: updatedPet })
         })
         .catch(err => {
