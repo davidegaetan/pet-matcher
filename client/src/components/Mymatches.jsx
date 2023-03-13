@@ -21,15 +21,15 @@ const Mymatches = () => {
     <div className='d-flex flex-column align-items-center'>
         {
                     pets.map((pet, id) => {
-                        return (<div className='d-flex flex-column align-items-center'>
-                            <div className='d-sm-flex flex-column flex-sm-row justify-content-sm-around border-top border-2 pt-3 pb-3 ' key={pet + id + "div1"}>
-                                <div className='w-50 m-auto p-2 d-flex flex-row justify-content-center' key={pet + id + "div2"}>
-                                    <img key={pet + id + "img"} src={pet.imgUrl} className='w-50' alt='pet profile' />
+                        return (<div className='d-flex flex-column align-items-center' key={pet + id + "div1"}>
+                            <div className='d-sm-flex flex-column flex-sm-row justify-content-sm-around border-top border-2 pt-3 pb-3 ' >
+                                <div className='w-50 m-auto p-2 d-flex flex-row justify-content-center' >
+                                    <img  src={pet.imgUrl} className='w-50' alt='pet profile' />
                                 </div>
-                                <div className='w-50 d-flex flex-column m-auto mt-sm-0 align-items-center align-items-sm-baseline p-2' key={pet + id + "div3"}>
-                                    <h2 key={pet + id + "name"}>{pet.name}</h2>
-                                    <div key={pet + id + "description"}>{pet.description}</div>
-                                    <div key={pet + id + "div4"}>
+                                <div className='w-50 d-flex flex-column m-auto mt-sm-0 align-items-center align-items-sm-baseline p-2' >
+                                    <h2 >{pet.name}</h2>
+                                    <div >{pet.description}</div>
+                                    <div>
                                         {
                                             pet.skill1 || pet.skill2 || pet.skill3 ? <h5>Skills:</h5> : <></>
                                         }
@@ -45,7 +45,7 @@ const Mymatches = () => {
                                             }
                                         </ul>
                                     </div>
-                                    <div className='d-flex justify-content-around flex-column' key={pet + id + "link"}>
+                                    <div className='d-flex justify-content-around flex-column' >
                                         <div>{pet.likes} like(s)</div>
                                         
                                     </div>
