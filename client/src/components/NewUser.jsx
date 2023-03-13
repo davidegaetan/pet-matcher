@@ -24,11 +24,11 @@ const NewUser = () => {
             email,
             password,
             admin: false
-        }, {withCredentials:true})
+        })
             .then(res => {
                 console.log(res)
                 alert("User created! Please log in with your new account.")
-                navigate("/");
+                navigate("/home", {replace: true});
             })
             .catch(err => {
                 console.log(err, "err")
@@ -52,23 +52,23 @@ const NewUser = () => {
                     <div className='col'>
                         <label htmlFor="fname" >First Name</label>
                         <input type="text" name="fname" id="fname" onChange={e => setFname(e.target.value)} className='form-control' required/>
-                        {allErrors.fname ? <div className='invalid-feedback'> {allErrors.fname.message}</div> : <div></div>}
+                        {/* {allErrors.fname ? <div className='invalid-feedback'> {allErrors.fname.message}</div> : <div></div>} */}
 
                         <label htmlFor="lname" >Last Name</label>
                         <input type="text" name="lname" id="lname" onChange={e => setLname(e.target.value)} className='form-control' required/>
-                        {allErrors.lname ? <div className='invalid-feedback'> {allErrors.lname.message}</div> : <div></div>}
+                        {/* {allErrors.lname ? <div className='invalid-feedback'> {allErrors.lname.message}</div> : <div></div>} */}
 
                         <label htmlFor="userName" >User Name</label>
                         <input type="text" name="userName" id="userName" onChange={e => setUserName(e.target.value)} className='form-control' required/>
-                        {allErrors.lname ? <div className='invalid-feedback'> {allErrors.userName.message}</div> : <div></div>}
+                        {/* {allErrors.lname ? <div className='invalid-feedback'> {allErrors.userName.message}</div> : <div></div>} */}
 
                         <label htmlFor="email" >Email</label>
                         <input type="email" name="email" id="email" onChange={e => setEmail(e.target.value)} className='form-control' required/>
-                        {allErrors.email ? <div className='invalid-feedback'> {allErrors.email.message}</div> : <div></div>}
+                        {/* {allErrors.email ? <div className='invalid-feedback'> {allErrors.email.message}</div> : <div></div>} */}
 
                         <label htmlFor="password" >Password</label>
                         <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)} className='form-control' required minLength="8" />
-                        {allErrors.name ? <div className='invalid-feedback'> {allErrors.password.message}</div> : <div></div>}
+                        {/* {allErrors.name ? <div className='invalid-feedback'> {allErrors.password.message}</div> : <div></div>} */}
 
                         {/* <label htmlFor="confirm-password" >Password</label>
                         <input type="confirm-password" name="confirm-password" id="confirm-password" onChange={e => setPassword(e.target.value)} className='form-control' required minLength="8" />

@@ -74,16 +74,6 @@ const PetDetails = () => {
 
     return (
         <div className='col-lg-6 col-md-8 m-auto'>
-            <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Mascota Matcher</h1>
-                <div>
-                <Login/><button className='btn'><NavLink to={"/"} >back to home</NavLink></button>
-                </div>
-            </div>
-            <div className='d-flex justify-content-between ms-2 ms-md-0'>
-                <h4 className='mt-2'>Details about {details.name}</h4>
-                <AdoptPetButton details={petId} goHome={true} />
-            </div>
             <div className='mt-2 border  border-2 p-3 d-flex'>
                 <div className='mt-2 mb-3  w-50 d-flex flex-column'>
                     <div>

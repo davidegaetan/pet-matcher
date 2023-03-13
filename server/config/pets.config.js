@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
-const database = "pet-shelter"
-const URL = process.env.CONFIG_URL;
+const URI = process.env.MONGO_URI;
 mongoose.set('strictQuery', true);
-mongoose.connect(`${URL}${database}`, {
+mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
