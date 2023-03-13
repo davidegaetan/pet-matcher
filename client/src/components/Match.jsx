@@ -17,6 +17,7 @@ const Match = () => {
 useEffect(()=>{
     axios.get(`http://localhost:8080/api/pets/${petId}`)
             .then(res => {
+                console.log(res.data.Pets)
                 setPet(res.data.Pets)
             })
             .catch(err => console.log(err))
@@ -25,8 +26,7 @@ useEffect(()=>{
     console.log(pet.petType)
     axios.get(`http://localhost:8080/api/pets/match/${pet.petType}`)
         .then(res => {
-            console.log(res)
-            setPets(res.data.Pets.filter((mas,index)=>(mas.userId!==pet.userId && !pet.possibleMatches.includes(mas._id)))) //que se muestre solo los pets de otros usuarios
+            setPets(res.data.Pets.filter((mas,index)=>(mas.userId!==pet.userId._id && !pet.possibleMatches.includes(mas._id)))) //que se muestre solo los pets de otros usuarios
             setCurrentIndex(res.data.Pets.length - 1)
         })
         .catch(err => console.log(err))
@@ -174,15 +174,15 @@ const childRefs = useMemo(
                     ))}
                 </div>
                 {gotaMatch ? (
-                    <h2> We have got a match!!!</h2>
+                    <h2 className={styles.h2per}> You have got a match!!!</h2>
                 ) : ("")
                 }
                 {lastDirection ? (
-                    <h2 key={lastDirection} className={styles.infoText}>
+                    <h2 key={lastDirection} className={`${styles.h2per}${styles.infoText}`}>
                     You swiped {lastDirection}
                     </h2>
                 ) : (
-                    <h2 className={`mt-4 ${styles.infoText}`}>
+                    <h2 className={`mt-4 ${styles.h2per} ${styles.infoText}`}>
                     Swipe a card !
                     </h2>
                 )}

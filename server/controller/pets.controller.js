@@ -10,7 +10,8 @@ module.exports.findAllPets = (req, res) => {
 }
 
 module.exports.findOnePet = (req, res) => {
-    Pet.findOne({ _id: req.params.id })
+    Pet.findOne({ _id: req.params.id }).populate({path: 'userId',
+    select: 'email'})
         .then(onePet => res.json({ Pets: onePet }))
         .catch(err => res.status(400).json({ message: "Something went wrong", error: err }));
 }

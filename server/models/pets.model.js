@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+require('../models/users.model')
 const petSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -56,7 +56,10 @@ const petSchema = new mongoose.Schema({
             commentBy: String
         }
     ],
-    userId: String,
+    userId: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User"
+    },
     approved: false
 })
 
