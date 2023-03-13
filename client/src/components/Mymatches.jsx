@@ -21,9 +21,9 @@ const Mymatches = () => {
     <div className='d-flex flex-column align-items-center'>
         {
                     pets.map((pet, id) => {
-                        return (<>
-                            {<div className='d-sm-flex flex-column flex-sm-row justify-content-sm-around border-top border-2 pt-3 pb-3 ' key={pet + id + "div1"}>
-                                <div className='w-50 m-auto p-2' key={pet + id + "div2"}>
+                        return (<div className='d-flex flex-column align-items-center'>
+                            <div className='d-sm-flex flex-column flex-sm-row justify-content-sm-around border-top border-2 pt-3 pb-3 ' key={pet + id + "div1"}>
+                                <div className='w-50 m-auto p-2 d-flex flex-row justify-content-center' key={pet + id + "div2"}>
                                     <img key={pet + id + "img"} src={pet.imgUrl} className='w-50' alt='pet profile' />
                                 </div>
                                 <div className='w-50 d-flex flex-column m-auto mt-sm-0 align-items-center align-items-sm-baseline p-2' key={pet + id + "div3"}>
@@ -47,12 +47,16 @@ const Mymatches = () => {
                                     </div>
                                     <div className='d-flex justify-content-around flex-column' key={pet + id + "link"}>
                                         <div>{pet.likes} like(s)</div>
-                                        <CheckMatches className= {pet + id + "check" } pet={pet}/>
+                                        
                                     </div>
                                 </div>
+                                
                             </div>
-                            }
-                        </>)
+                            <div className="d-flex flex-column">
+                                <CheckMatches className= {pet + id + "check" } pet={pet}/>
+                            </div>
+                            
+                        </div>)
                     })
                 }
     </div>
