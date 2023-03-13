@@ -66,7 +66,7 @@ const pages = [
     },
     {
         name: 'Match',
-        link: '/pets/new',
+        link: '/pets/matches',
     },];
 
 const adminPages = [
