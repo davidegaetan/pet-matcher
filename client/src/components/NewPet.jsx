@@ -16,8 +16,8 @@ const NewPet = () => {
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
     const [allErrors, setAllErrors] = useState({});
-    const validatedForm = 'mt-2 border-top border-2 p-3 was-validated';
-    const notValidatedForm = 'mt-2 border-top border-2 p-3';
+    const validatedForm = 'mt-2 p-3 was-validated';
+    const notValidatedForm = 'mt-2 p-3';
     const [formValidation, setFormValidation] = useState(notValidatedForm);
     const liftLocation = (loc)=>{
         setLocation(loc)
@@ -40,7 +40,7 @@ const NewPet = () => {
         }, {withCredentials:true})
             .then(res => {
                 console.log(res)
-                navigate("/home");
+                navigate("/home", {replace: true});
             })
             .catch(err => {
                 console.log(err.response.status, "err.response.status")
@@ -70,19 +70,12 @@ const NewPet = () => {
 
     return (
         <div className='col-lg-6 col-md-8 m-auto'>
-            <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Mascota Matcher</h1>
-                <NavLink to={"/home"} >back to home</NavLink>
-            </div>
-            <div className=' mb-3 ms-2 ms-md-0'>
-                <h4 className='mt-2'>Know a pet needing a home?</h4>
-            </div>
             <form className={formValidation}>
                 <div className='row'>
                     <div className='col w-100'>
                         <label htmlFor="name" >Pet Name</label>
                         <input type="text" name="name" id="name" onChange={e => setName(e.target.value)} className='form-control' required minLength="3" />
-                        {/* {allErrors.name ? <div className='invalid-feedback'> {allErrors.name.message}</div> : <div></div>} */}
+                        {allErrors.name ? <div className='invalid-feedback'> {allErrors.name.message}</div> : <div></div>}
                         <div className="mb-3">
                         <label htmlFor="petType" >Pet Type</label>
                             <select className='form-select'name="petType" id='petType' onChange={e=>setPetType(e.target.value)}>
@@ -90,11 +83,11 @@ const NewPet = () => {
                                 <option value="Perro">Perro</option>
                                 <option value="Gato">Gato</option>
                             </select>
-                            {/* {allErrors.petType ? <div className='invalid-feedback'> {allErrors.petType.message}</div> : <div></div>} */}
+                            {allErrors.petType ? <div className='invalid-feedback'> {allErrors.petType.message}</div> : <div></div>}
                         </div>
                         <label htmlFor="description" >Description</label>
                         <input type="text" name="description" id="description" onChange={e => setDescription(e.target.value)} className='form-control' required minLength="3" />
-                        {/* {allErrors.description ? <div className='invalid-feedback'> {allErrors.description.message}</div> : <div></div>} */}
+                        {allErrors.description ? <div className='invalid-feedback'> {allErrors.description.message}</div> : <div></div>}
                         <label htmlFor="skill-1" >Skill 1:</label>
                         <input type="text" name="skill-1" id="skill-1" onChange={e => setSkill1(e.target.value)} className='form-control' />
                         <label htmlFor="skill-2" >Skill 2:</label>
