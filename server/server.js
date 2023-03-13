@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors")
 const app = express();
-const PORT = 8080;
 require('dotenv').config();
+const PORT = process.env.PORT;
 const cookieParser = require('cookie-parser');
 require("./config/pets.config");
 app.use(express.json(), express.urlencoded({ extended: true }));
@@ -13,4 +13,3 @@ PetRoutes(app);
 const UserRoutes = require('./routes/users.routes');
 UserRoutes(app);
 app.listen(PORT, () => console.log(`The server is listening on port ${PORT}`));
-
