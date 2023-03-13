@@ -19,7 +19,6 @@ const CheckMatches = ({pet}) => {
                 .then(res=>{
                     console.log(res)
                     arraym.push(res.data.Pets)
-                    
                 })
                 .catch(err=>{
                     console.log(err)
@@ -29,8 +28,6 @@ const CheckMatches = ({pet}) => {
                 setMatches(arraym)
                 setMactive(true)
             })
-            
-            
         }else{
             setMactive(false)
             console.log(`esta vacio`)
@@ -39,7 +36,7 @@ const CheckMatches = ({pet}) => {
     }
   return (
     <div className='d-flex flex-column align-items-center'>
-        {!clickstatus ? (<button className='btn btn-primary' onClick={handleClick}>Ver matches</button>) : ("")}
+        {!clickstatus ? (<button className='btn btn-primary' onClick={handleClick}>See your matches</button>) : ("")}
         <div className='d-flex flex-row w-50'>
         { clickstatus ? ( <>
         {   mactive ? (
@@ -52,11 +49,11 @@ const CheckMatches = ({pet}) => {
                         <p className="card-text">Skill1 : {m.skill1}</p>
                         <p className="card-text">Skill2 : {m.skill2}</p>
                         <p className="card-text">Skill3 : {m.skill3}</p>
-                        <p className="card-text">Informacion de contacto : {m.userId.email}</p>
+                        <p className="card-text">Contact info: {m.userId.email}</p>
                     </div>
                     </div>
             </div>)})
-       ) : ("No tienes matches con esta mascota")
+       ) : ("You have no matches with this pet")
 
         } </>) : ("") }</div>
     </div>
