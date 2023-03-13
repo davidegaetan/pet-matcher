@@ -6,24 +6,30 @@ const CheckMatches = ({pet}) => {
     const [clickstatus, setClickstatus]=useState(false)
 
     const handleClick =()=>{
-        //pregunta si el array matches esta vacio
         clickstatus ? setClickstatus(false) : setClickstatus(true)
         let arraym = [];
+        let promises= [];
         let arraymatches = pet.matches;
+        //pregunta si el array matches esta vacio
         if (arraymatches.length){
             for ( let i = 0; i<arraymatches.length; i++){
                 let id = arraymatches[i];
+                promises.push(
                 axios.get(`http://localhost:8080/api/pets/${id}`)
                 .then(res=>{
                     console.log(res)
                     arraym.push(res.data.Pets)
-                    setMactive(true)
+                    
                 })
                 .catch(err=>{
                     console.log(err)
-                })
+                }))
             }
-            setMatches(arraym)
+            Promise.all(promises).then(()=>{
+                setMatches(arraym)
+                setMactive(true)
+            })
+            
             
         }else{
             setMactive(false)
