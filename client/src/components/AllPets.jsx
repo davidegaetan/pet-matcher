@@ -18,14 +18,8 @@ const AllPets = () => {
 
     return (
         <div className='col-lg-6 col-md-8 col-sm-12 col- m-auto'>
-            <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Mascota Matcher</h1>
-                <div>
-                    <Login/>
-                </div>
-            </div>
             <div className=' mb-3'>
-                <h4 className='mt-2 ms-2 ms-md-0'>Check out these pets</h4>
+                <h4 className='mt-2 ms-2 ms-md-0'>All pets</h4>
             </div>
             <div className='mt-2  pt-3'>
 
