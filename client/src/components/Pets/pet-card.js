@@ -1,7 +1,6 @@
-import { Button, CardContent, CardMedia, CardActions, Typography, Card, Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { CardContent, CardMedia, CardActions, Typography, Card, Grid } from '@mui/material';
 
-function PetCard({pet}) {
+function PetCard({pet, PetActions}) {
   return (<Card sx={{ display: 'flex', maxWidth: "600px", margin: "0 auto", height: "100%" }}>
     <Grid container>
         <Grid item xs={12} sm={5}>
@@ -36,19 +35,14 @@ function PetCard({pet}) {
                     </ul>
             )}
             <CardActions disableSpacing>
-            <Typography variant="body2" sx={{ mr: 1.5 }}>
-            {    pet.likes} like(s)
-            </Typography>
-            <Typography variant="body2">
-            {    pet.comments.length} comments(s)
-            </Typography>
-                </CardActions>
-            <CardActions>
-                <Link to={"/pets/" + pet._id} relative="/"><Button size="small">View</Button></Link>
-                <Link to={"/pets/" + pet._id + "/edit"} relative="/"><Button size="small">Edit</Button></Link>
-                <Button size="small">Delete</Button>
-                <Link to={"/pets/" + pet._id + "/match"} relative="/"><Button size="small">Match</Button></Link>
-                </CardActions>
+                <Typography variant="body2" sx={{ mr: 1.5 }}>
+                {    pet.likes} like(s)
+                </Typography>
+                <Typography variant="body2">
+                {    pet.comments.length} comments(s)
+                </Typography>
+            </CardActions>
+            <PetActions pet={pet} />
             </CardContent>
         </Grid>
     </Grid>
