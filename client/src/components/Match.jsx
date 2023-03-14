@@ -76,8 +76,6 @@ const childRefs = useMemo(
         return Math.round(d);
       
 }
-
-
   const onMatchRequest = (e,masco,index)=>{
         const iden = masco._id;
         const posiblesMatches = masco.possibleMatches;
@@ -85,10 +83,8 @@ const childRefs = useMemo(
         //busca si en sus posibles matches esta el id del pet
          if (posiblesMatches.includes(pet._id) ){
             console.log("We have a match")
-            confetti();
-            setgotaMatch(true)
             //se cargan los ids en ambas mascotas 
-            if (!matches.includes(pet._id)){ // en caso de que ya exista un match anterior al mismo id que no se duplique 
+            if (!matches.includes(pet._id) && !gotaMatch){ // en caso de que ya exista un match anterior al mismo id que no se duplique 
                 console.log("entro a agregar match")
             let nuevoarray = pet.matches
             nuevoarray.push(iden)
@@ -114,7 +110,8 @@ const childRefs = useMemo(
                 console.log(err)
             }) }
             //alguna animacion cool
-
+            confetti();
+            setgotaMatch(true)
         }else{
             //se coloca entre posibles matches
             let nuevoarray = pet.possibleMatches
