@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import AllPets from './components/AllPets';
 import EditPet from './components/EditPet';
 import UserLogin from './components/UserLogin';
 import NewPet from './components/NewPet';
@@ -14,8 +13,10 @@ import ProtectedAdminRoute from './utils/ProtectedAdminRoute';
 import Layout from './pages/layout';
 import NoPage from './pages/no-page';
 import Home from './pages/home';
-import Match from './components/Match';
+import Match from './pages/pets-match/Match';
+//import Mymatches from './pages/my-matches';
 import Mymatches from './components/Mymatches';
+import AllPets from './pages/all-pets';
 
 function App() {
 
