@@ -51,14 +51,7 @@ const EditPet = () => {
     }
 
     return (
-        <div className='col-lg-6 col-md-8 m-auto'>
-            <div className='d-flex justify-content-between mt-2 ms-2 ms-md-0'>
-                <h1 >Just Pet Pics</h1>
-                <button className='btn'><NavLink to={"/"} >back to home</NavLink></button>
-            </div>
-            <div className=' mb-3'>
-                <h4 className='mt-2 ms-2 ms-md-0'>Edit {details.name}</h4>
-            </div>
+        <div className='col-lg-6 col-md-8 m-auto mt-5'>
             <form className={formValidation}>
                 <div className='row'>
                     <div className='col'>

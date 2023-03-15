@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Typography, Container } from '@mui/material';
-import PetList from './Pets/pet-list';
+import PetList from '../../components/Pets/pet-list'
+import PetActions from './pet-actions'
 
-
-const YourPets = () => {
+function Home() {
     const [pets, setPets] = useState([]);
 
-
     useEffect(() => {
-        axios.get('http://localhost:8080/api/user/pets/',
-            { withCredentials: true })
+        axios.get('http://localhost:8080/api/pets')
             .then(res => {
-                console.log(res, "res")
                 setPets(res.data.Pets)
             })
-            .catch(err => console.log(err, "err"))
+            .catch(err => console.log(err))
     }, [])
 
 
     return (
         <Container maxWidth="xl">
             <Typography variant='h3' sx={{textAlign: "center", mb: 3}}>
-                All your pets
+                All pets
             </Typography>
 
-            <PetList pets={pets} />
+            <PetList pets={pets} PetActions={PetActions} />
         </Container>
     )
 }
 
-export default YourPets
+export default Home;

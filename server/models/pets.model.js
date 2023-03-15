@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+require('../models/users.model')
 const petSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -9,12 +9,37 @@ const petSchema = new mongoose.Schema({
     petType: {
         type: String,
         required: [true,"Your pet's type is required"],
-        minlength: [3, "Your pet's type must be at least 3 characters long"]
+        enum: {
+            values : ['Perro','Gato'],
+            message : "Choose only these types of pets"
+        }
     },
     description: {
         type: String,
         required: [true,"Your pet's description is required"],
         minlength: [3, "Your pet's description must be at least 3 characters long"]
+    },
+    possibleMatches:{
+        type : Array,
+        default : []
+    },
+    matches:{
+        type : Array,
+        default : []
+    },
+    location : {
+        lat :{
+            type : Number,
+            required : [true, "Your pet's location is required"],
+            min : [-90, "Your min latitude is -90"],
+            max : [90, "Your max latitude is 90"]
+        },
+        lng : {
+            type : Number,
+            required : [true, "Your pet's location is required"],
+            min : [-180, "Your min longitude is -90"],
+            max : [180, "Your max longitude is -90"]
+        }
     },
     skill1: String,
     skill2: String,
@@ -31,7 +56,10 @@ const petSchema = new mongoose.Schema({
             commentBy: String
         }
     ],
-    userId: String,
+    userId: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User"
+    },
     approved: false
 })
 

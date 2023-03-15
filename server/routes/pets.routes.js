@@ -3,6 +3,7 @@ const PetController = require("../controller/pets.controller");
 
 module.exports = app => {
     app.get("/api/pets/", PetController.findAllPets);
+    app.get("/api/pets/match/:petType",PetController.findAllPetsBut);
     app.get("/api/pets/:id", PetController.findOnePet);
     app.get("/api/pets/:id/likes", authenticate, PetController.findOnePet);
     app.post("/api/pets/new", authenticate, PetController.insertNewPet);
