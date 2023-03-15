@@ -65,7 +65,7 @@ const ApprovePets = () => {
                                     </div>
                                     <div className='d-flex justify-content-around flex-column' key={pet + id + "link"}>
                                         <div>{pet.likes} like(s)</div>
-                                        <button className='btn btn-primary' onClick={approvePet(pet._id)}>approve</button>
+                                        <button className='btn btn-primary' onClick={()=>approvePet(pet._id)}>approve</button>
                                     </div>
                                 </div>
                             </div>
