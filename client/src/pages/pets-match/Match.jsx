@@ -150,22 +150,21 @@ const childRefs = useMemo(
                     >
                         <Card className={styles.card}>
                             <CardMedia
-                                sx={{ height: 300, position: "relative" }}
+                                sx={{ height: 600, maxHeight: "90vw", position: "relative" }}
                                 image={character.imgUrl}
                                 title={character?.name}
                             >
                                 <CardContent className={styles.cardContent}>
-                                
-                                <Typography gutterBottom variant="h5" component="div" className={styles.cardName}>
-                                    {character?.name}
-                                </Typography>
-                                <Typography sx={{ mb: 1.5, mt: 0 }} color="text.secondary">
-                                    A {distance(pet.location, character.location)} km
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {character.skill1} | {character.skill2} | {character.skill3}
-                                </Typography>
-                            </CardContent>
+                                    <Typography gutterBottom variant="h5" component="div" className={styles.cardName}>
+                                        {character?.name}
+                                    </Typography>
+                                    <Typography sx={{ mb: 1.5, mt: 0 }} color="text.secondary">
+                                        A {distance(pet.location, character.location)} km
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {character.skill1} | {character.skill2} | {character.skill3}
+                                    </Typography>
+                                </CardContent>
                             </CardMedia>
                             
                             <CardActions>
