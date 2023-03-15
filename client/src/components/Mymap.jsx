@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react'
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-
+const { REACT_APP_MAPS_API_KEY } = process.env;
 const Mymap = (props) => {
 
     const [location, setLocation]=useState({
@@ -9,7 +9,7 @@ const Mymap = (props) => {
     })
 
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: "AIzaSyCtQJCjd2giZ7NDH5lmT0HURUpMFj0oivw"
+        googleMapsApiKey: REACT_APP_MAPS_API_KEY
       });
     const center = useMemo(()=>({lat: -25, lng: -57.7}),[]);// para evitar que re-renderice el centro del map
       
