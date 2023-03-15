@@ -6,6 +6,7 @@ import UserLogout from './UserLogout';
 
 const ApprovePets = () => {
     const [pets, setPets] = useState([]);
+    const [approved, setApproved] = useState();
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/admin/approve',
@@ -15,7 +16,7 @@ const ApprovePets = () => {
                 setPets(res.data.Pets)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [approved])
 
     const approvePet = (petId) => {
         axios.put(`http://localhost:8080/api/pets/${petId}/edit`, {
@@ -23,6 +24,11 @@ const ApprovePets = () => {
         }, { withCredentials: true })
             .then(res => {
                 console.log(res)
+                if (approved) {
+                    setApproved(false);
+                }else{
+                    setApproved(true);
+                }
             })
             .catch(err => {
                 console.log(err)
