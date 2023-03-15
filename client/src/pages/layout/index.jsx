@@ -65,7 +65,7 @@ const pages = [
         link: '/home',
     },
     {
-        name: 'Match',
+        name: 'Matches',
         link: '/pets/matches',
     },];
 
