@@ -9,5 +9,5 @@ module.exports = app => {
     app.post("/api/pets/new", authenticate, PetController.insertNewPet);
     app.put("/api/pets/:id/edit", authenticate, PetController.editPet);
     app.put("/api/pets/:id/comment/new", authenticate, PetController.newComment);
-    app.delete("/api/pets/:id/adopt", authenticateAdmin, PetController.adoptPet);
+    app.delete("/api/pets/:id/adopt", authenticate, PetController.adoptPet);
 }

@@ -17,6 +17,7 @@ import Match from './pages/pets-match/Match';
 //import Mymatches from './pages/my-matches';
 import Mymatches from './components/Mymatches';
 import AllPets from './pages/all-pets';
+import AdoptPetButton from './components/AdoptPetButton';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/pets/new" element={<NewPet />} />
             <Route exact path="/pets/:petId" element={<PetDetails />} />
             <Route exact path="/pets/:petId/edit" element={<EditPet />} />
+            <Route exact path="/pets/:petId/delete" element={<AdoptPetButton/>} />
             <Route exact path="/pets/:petId/match" element={<Match/>} />
             <Route exact path="/pets/matches" element={<Mymatches/>} />
             <Route path="/pets/*" element={<NoPage />} />
